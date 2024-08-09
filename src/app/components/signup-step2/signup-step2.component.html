@@ -1,0 +1,105 @@
+<div class="layout-container">
+  <div class="image-side">
+    <div class="image-wrapper">
+      <img
+        src="assets/images/login hero.jpg"
+        alt="Side Image"
+        class="base-image"
+      />
+      <img
+        src="assets/images/image.jpg"
+        alt="Overlay Image"
+        class="overlay-image"
+      />
+    </div>
+  </div>
+  <div class="form-side">
+    <div class="header-container">
+      <h1 style="color: rgba(0, 105, 209, 1);" (click)="goBack()">
+        <img src="assets\images\icons_back.png" alt="Back" class="back-icon" /> Go Back
+      </h1>
+      <h2>Create Account</h2>
+      <div class="step-lines">
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+      <div class="input-group">
+        <label for="organisation">Organisation-name</label>
+        <input
+          id="organisation"
+          formControlName="organisation"
+          placeholder="Enter Organisation-name"
+          required
+        />
+        <label for="organisation_id">Organisation-id</label>
+        <input
+          id="organisation_id"
+          formControlName="organisation_id"
+          placeholder="Enter Organisation-id"
+          required
+        />
+        <div
+          *ngIf="errorMessage === 'Unknown organization-id'"
+          class="error-message"
+        >
+          {{ errorMessage }}
+        </div>
+        <label for="designation" class="form-label">Designation</label>
+        <select
+          id="designation"
+          formControlName="designation"
+          required
+          class="form-select"
+        >
+          <option value="" disabled>Select a designation</option>
+          <option
+            *ngFor="let designation of designations"
+            [value]="designation"
+          >
+            {{ designation }}
+          </option>
+        </select>
+        <label for="birthDate">Birth Date</label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="birthDate"
+          placeholder="Birth-Date"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <div class="city-pincode-group">
+          <div class="input-half">
+            <label for="city">City</label>
+            <input
+              id="city"
+              formControlName="city"
+              placeholder="City"
+              required
+            />
+          </div>
+          <div class="input-half">
+            <label style="margin-left: 40px" for="pincode">Pincode</label>
+            <input
+              id="pincode"
+              formControlName="pincode"
+              placeholder="Pincode"
+              required
+              maxlength="6"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="errorMessage && errorMessage !== 'Unknown organization-id'"
+        class="error-message"
+      >
+        {{ errorMessage }}
+      </div>
+      <button type="submit">Next</button>
+    </form>
+  </div>
+</div>

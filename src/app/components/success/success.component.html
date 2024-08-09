@@ -1,0 +1,33 @@
+<div class="layout-container">
+  <div class="image-side">
+    <div class="image-wrapper">
+      <img
+        src="assets\images\login hero.jpg"
+        alt="Side Image"
+        class="base-image"
+      />
+      <img
+        src="assets/images/image.jpg"
+        alt="Overlay Image"
+        class="overlay-image"
+      />
+    </div>
+  </div>
+  <div class="form-side">
+    <img
+        src="assets\images\circle.jpg"
+        alt="Side Image"
+        class="success-base-image"
+      />
+      <img
+        src="assets\images\check.png"
+        alt="Success Overlay Image"
+        class="success-overlay-image"
+        style="padding: 10px;margin-top: -130px;"
+      />
+    <div class="success-message">
+      <h1>{{ message }}</h1>
+      <p *ngIf="secondMessage">{{ secondMessage }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="layout-container">
+  <div class="image-side">
+    <div class="image-wrapper">
+      <img
+        src="assets\images\login hero.jpg"
+        alt="Side Image"
+        class="base-image"
+      />
+      <img
+        src="assets/images/image.jpg"
+        alt="Overlay Image"
+        class="overlay-image"
+      />
+    </div>
+  </div>
+  <div class="form-side">
+    <h2>Welcome</h2>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="input-group">
+        <label for="email">Enter Email ID</label>
+        <input
+          id="email"
+          formControlName="email"
+          placeholder="Loremipsum@gmail.com"
+          required
+        />
+        <label for="phone">Enter Password</label>
+        <input id="phone" formControlName="password" placeholder="Password" required />
+      </div>
+      <button type="submit">Next</button>
+    </form>
+  </div>
+</div>
